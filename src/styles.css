@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+/* Navbar */
+body {
+  background-color: #fffafaa6; /* Soft Gray */
+  margin: 0;
+  font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
+.navbar{
+  background-color: #2E86AB; /* Primary color */
+}
+.centered-navbar {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Ensure it spans the full width */
+}
+
+.centered-navbar .container-fluid {
+  max-width: 1200px; /* Optional: Limit the width of the navbar */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.navbar-brand {
+  margin-right: 2rem; /* Add space between brand and links */
+}
+/* Profile Section */
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  height: 100vh;
+}
+
+.profile-content {
+  max-width: 50%;
+}
+
+.profile-content h1 {
+  font-size: 3rem;
+  color: #2E86AB;
+}
+
+.profile-content p {
+  font-size: 1.2rem;
+  color: #333333;
+}
+
+.profile-image img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 5px solid #F24236;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  background-color: #F24236;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.cta-button:hover {
+  background-color: #D63226;
+}
+
+/* Circle Animations */
+.circle-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(46, 134, 171, 0.1);
+  animation: float 6s infinite ease-in-out;
+}
+
+.circle-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 5%;
+  animation-duration: 6s;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 70%;
+  animation-duration: 8s;
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 30%;
+  animation-duration: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #333333;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}

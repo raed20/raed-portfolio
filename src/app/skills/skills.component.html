@@ -1,0 +1,93 @@
+<div class="skills-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h2 class="main-title">Technical Skills</h2>
+    <p class="subtitle">Explore my technical expertise across different domains</p>
+  </div>
+
+  <!-- Category Navigation -->
+  <div class="category-nav">
+    <button
+      *ngFor="let category of skillCategories"
+      (click)="setActiveCategory(category.key)"
+      [class]="getCategoryButtonClasses(category.key)"
+      class="category-btn"
+    >
+      <i [class]="category.iconClass"></i>
+      <span>{{ category.key }}</span>
+    </button>
+  </div>
+
+  <!-- Skills Display Area -->
+  <div class="skills-display">
+    <div [class]="getActiveCategoryHeaderClasses()" class="category-header">
+      <i [class]="getActiveCategoryIcon()"></i>
+      <h3>{{ activeCategory }} Skills</h3>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <div
+        *ngFor="let skill of getActiveSkills(); let i = index"
+        class="skill-item"
+        [@slideIn]="animatedSkills.has(i) ? 'in' : 'out'"
+      >
+        <!-- Skill Header -->
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <div class="skill-meta">
+            <span class="skill-years">{{ skill.years }}</span>
+            <div class="stars">
+              <i
+                *ngFor="let star of [1,2,3,4,5]; let j = index"
+                [class]="getStarClasses(skill.level, j)"
+                class="star"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div
+            [class]="getProgressBarClasses(skill.level)"
+            [style.width.%]="animatedSkills.has(i) ? skill.level : 0"
+            [style.transition-delay.ms]="i * 150"
+            class="progress-bar"
+          ></div>
+        </div>
+
+        <div class="skill-percentage">{{ skill.level }}%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <div
+      *ngFor="let category of skillCategories"
+      (click)="setActiveCategory(category.key)"
+      [class]="getSummaryCardClasses(category.key)"
+      class="summary-card"
+    >
+      <div class="card-icon">
+        <i [class]="category.iconClass"></i>
+      </div>
+      <div class="card-title">{{ category.key }}</div>
+      <div class="card-count">{{ category.skills.length }} skills</div>
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="tech-stack">
+    <h4 class="tech-stack-title">My Tech Stack</h4>
+    <div class="tech-tags">
+      <span
+        *ngFor="let skill of getAllSkills()"
+        class="tech-tag"
+      >
+        {{ skill.name }}
+      </span>
+    </div>
+  </div>
+</div>
