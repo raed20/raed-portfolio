@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { ExperienceComponent } from "./experience/experience.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },  // default route
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'skills', component: SkillsComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '**', redirectTo: '/about' }  // wildcard route for 404, redirect to About
+  { path: 'experience', component: ExperienceComponent },
+  { path: '**', redirectTo: '/' }  // wildcard route for 404, redirect to About
 ];
 
 @NgModule({

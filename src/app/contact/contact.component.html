@@ -1,32 +1,81 @@
 <section class="contact-section">
-  <div class="contact-card">
-    <h2>Get in Touch</h2>
-    <p>Feel free to reach out for collaborations or just to say hi!</p>
-    <div class="contact-info">
-      <p><i class="fas fa-phone"></i> +216 24 745 035</p>
-      <p><i class="fas fa-envelope"></i> raed.maaloul@esprit.tn </p>
-      <p><i class="fas fa-map-marker-alt"></i> Ariana, Tunisia </p>
-    </div>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/raed-maaloul-9b5912173/"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com/raed20"><i class="fab fa-github"></i></a>
-      <a href="https://www.facebook.com/raed.maaloul.3/"><i class="fab fa-facebook"></i></a>
-    </div>
+  <div class="floating-elements">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
   </div>
 
-  <form class="contact-form" novalidate>
-    <div class="input-group">
-      <input type="text" id="name" required />
-      <label for="name">Your Name</label>
+  <div class="contact-container" [@slideUp]="animationState">
+    <div class="contact-header">
+      <h1 class="contact-title">Let's Connect</h1>
+      <p class="contact-subtitle">Building Digital Solutions Together</p>
+      <p class="contact-description">
+        Ready to collaborate on your next project? I'm always excited to discuss new opportunities and innovative ideas.
+      </p>
     </div>
-    <div class="input-group">
-      <input type="email" id="email" required />
-      <label for="email">Your Email</label>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="info-item" (click)="callPhone()" [@fadeInLeft]="animationState">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-details">
+            <h3>Phone</h3>
+            <p>{{ contactInfo.phone }}</p>
+          </div>
+        </div>
+
+        <div class="info-item" (click)="sendEmail()" [@fadeInLeft]="animationState">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-details">
+            <h3>Email</h3>
+            <p>{{ contactInfo.email }}</p>
+          </div>
+        </div>
+
+        <div class="info-item" [@fadeInLeft]="animationState">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-details">
+            <h3>Location</h3>
+            <p>{{ contactInfo.location }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-section" [@fadeInRight]="animationState">
+        <div class="profile-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div>
+          <h2 class="profile-name">{{ profileInfo.name }}</h2>
+          <p class="profile-title">{{ profileInfo.title }}</p>
+        </div>
+
+        <div class="social-links">
+          <a
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            [class]="'social-link ' + social.platform"
+            target="_blank"
+            (mouseenter)="onSocialHover(social.platform)"
+            (mouseleave)="onSocialLeave()"
+          >
+            <i [class]="social.icon"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="input-group">
-      <textarea id="message" rows="5" required></textarea>
-      <label for="message">Your Message</label>
+
+    <div class="cta-section" [@fadeInUp]="animationState">
+      <a (click)="sendEmail()" class="cta-button">
+        <i class="fas fa-paper-plane"></i>
+        Start a Conversation
+      </a>
     </div>
-    <button type="submit" class="btn-send">Send Message</button>
-  </form>
+  </div>
 </section>

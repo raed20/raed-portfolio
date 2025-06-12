@@ -1,0 +1,144 @@
+<div class="experience-container">
+  <!-- Header Section -->
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="title-icon">⚡</span>
+      Professional Experience
+    </h2>
+    <p class="section-subtitle">
+      Journey through my professional growth and key achievements
+    </p>
+  </div>
+
+  <!-- Experience Timeline -->
+  <div class="timeline-wrapper">
+    <div class="timeline-line"></div>
+
+    <!-- Group experiences by type -->
+    <div *ngFor="let type of ['internship', 'project']; let typeIndex = index" class="experience-group">
+      <div class="group-header">
+        <span class="group-icon">{{ getTypeIcon(type) }}</span>
+        <h3 class="group-title">{{ getTypeTitle(type) }}</h3>
+      </div>
+
+      <div class="experiences-grid">
+        <div
+          *ngFor="let experience of getExperiencesByType(type); let i = index"
+          class="experience-card"
+          [style.--card-color]="experience.color"
+          (click)="openModal(experience)"
+        >
+          <div class="card-header">
+            <div class="card-icon">{{ experience.icon }}</div>
+            <div class="card-period">{{ experience.period }}</div>
+          </div>
+
+          <div class="card-content">
+            <h4 class="card-title">{{ experience.title }}</h4>
+            <p class="card-company">
+              <span class="company-icon">🏢</span>
+              {{ experience.company }}
+            </p>
+            <p class="card-location">
+              <span class="location-icon">📍</span>
+              {{ experience.location }}
+            </p>
+
+            <div class="card-description">
+              <p>{{ experience.description[0] }}</p>
+              <span class="read-more">Click to read more...</span>
+            </div>
+
+            <div class="tech-stack">
+              <span
+                *ngFor="let tech of experience.technologies.slice(0, 3)"
+                class="tech-badge"
+              >
+                {{ tech }}
+              </span>
+              <span
+                *ngIf="experience.technologies.length > 3"
+                class="tech-more"
+              >
+                +{{ experience.technologies.length - 3 }} more
+              </span>
+            </div>
+          </div>
+
+          <div class="card-overlay">
+            <div class="overlay-content">
+              <span class="view-details">View Details</span>
+              <div class="overlay-arrow">→</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for detailed view -->
+  <div class="modal-overlay" [class.active]="isModalOpen" (click)="closeModal()">
+    <div class="modal-content" (click)="stopPropagation($event)" *ngIf="selectedExperience">
+      <button class="modal-close" (click)="closeModal()" type="button" aria-label="Close modal">×</button>
+
+      <div class="modal-header">
+        <div class="modal-icon">{{ selectedExperience.icon }}</div>
+        <div class="modal-title-section">
+          <h3 class="modal-title">{{ selectedExperience.title }}</h3>
+          <p class="modal-company">{{ selectedExperience.company }}</p>
+          <p class="modal-location">{{ selectedExperience.location }} • {{ selectedExperience.period }}</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4>Key Responsibilities & Achievements</h4>
+          <ul class="responsibilities-list">
+            <li *ngFor="let desc of selectedExperience.description">{{ desc }}</li>
+          </ul>
+        </div>
+
+        <div class="modal-section" *ngIf="selectedExperience.achievements">
+          <h4>Notable Achievements</h4>
+          <ul class="achievements-list">
+            <li *ngFor="let achievement of selectedExperience.achievements">{{ achievement }}</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h4>Technologies & Tools</h4>
+          <div class="modal-tech-stack">
+            <span
+              *ngFor="let tech of selectedExperience.technologies"
+              class="modal-tech-badge"
+            >
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">{{ internshipCount }}</div>
+        <div class="stat-label">Internships</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ projectCount }}</div>
+        <div class="stat-label">Key Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ totalTechnologies }}</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Years Learning</div>
+      </div>
+    </div>
+  </div>
+</div>

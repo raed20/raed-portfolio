@@ -177,11 +177,12 @@
 <body>
 <nav>
   <div class="nav-container">
-    <a href="#" class="logo">Raed Maaloul</a>
+    <a href="#" class="logo">Raed Maaloul's Portfolio</a>
     <ul class="nav-links">
       <li><a href="#about" (click)="scrollToSection($event, 'about')" [class.active]="currentSection === 'about'">About Me</a></li>
       <li><a href="#skills" (click)="scrollToSection($event, 'skills')" [class.active]="currentSection === 'skills'">Skills</a></li>
       <li><a href="#projects" (click)="scrollToSection($event, 'projects')" [class.active]="currentSection === 'projects'">Projects</a></li>
+      <li><a href="#experience" (click)="scrollToSection($event, 'experience')" [class.active]="currentSection === 'experience'">Experience</a></li>
       <li><a href="#contact" (click)="scrollToSection($event, 'contact')" [class.active]="currentSection === 'contact'">Contact</a></li>
     </ul>
   </div>
@@ -214,6 +215,10 @@
 
 <section id="projects">
 <app-projects></app-projects>
+</section>
+
+<section id="experience">
+<app-experience></app-experience>
 </section>
 
 <section id="contact">
