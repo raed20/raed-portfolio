@@ -445,3 +445,124 @@
     font-size: 1.1rem;
   }
 }
+/* Base responsive rules you have — keep these or modify as below */
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .contact-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .contact-title {
+    font-size: 2.2rem;  /* slightly smaller */
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;  /* stack vertically */
+    gap: 2rem;
+  }
+
+  .profile-avatar {
+    width: 130px;   /* smaller for phones */
+    height: 130px;
+    font-size: 3rem;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+  }
+
+  .info-item {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .info-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 0.5rem;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .contact-description {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .profile-title {
+    font-size: 1rem;
+  }
+
+  .profile-avatar {
+    width: 110px;
+    height: 110px;
+    font-size: 2.5rem;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .info-item {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Optional: for very small screens, stack social links vertically */
+@media (max-width: 350px) {
+  .social-links {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}

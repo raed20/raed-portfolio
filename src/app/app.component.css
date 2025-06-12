@@ -1,0 +1,53 @@
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  /* Navigation */
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Hero Section: stack vertically and center */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px; /* a bit more space for nav */
+  }
+
+  .intro-text {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .name {
+    font-size: 2.5rem; /* smaller for mobile */
+  }
+
+  .intro-line {
+    font-size: 1.2rem;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  /* Sections padding */
+  section {
+    padding: 60px 15px;
+  }
+}
