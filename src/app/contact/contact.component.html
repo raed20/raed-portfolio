@@ -16,7 +16,12 @@
 
     <div class="contact-content">
       <div class="contact-info">
-        <div class="info-item" (click)="callPhone()" [@fadeInLeft]="animationState">
+        <button
+          type="button"
+          class="info-item"
+          (click)="callPhone()"
+          [@fadeInLeft]="animationState"
+        >
           <div class="info-icon">
             <i class="fas fa-phone"></i>
           </div>
@@ -24,9 +29,14 @@
             <h3>Phone</h3>
             <p>{{ contactInfo.phone }}</p>
           </div>
-        </div>
+        </button>
 
-        <div class="info-item" (click)="sendEmail()" [@fadeInLeft]="animationState">
+        <button
+          type="button"
+          class="info-item"
+          (click)="sendEmail()"
+          [@fadeInLeft]="animationState"
+        >
           <div class="info-icon">
             <i class="fas fa-envelope"></i>
           </div>
@@ -34,7 +44,7 @@
             <h3>Email</h3>
             <p>{{ contactInfo.email }}</p>
           </div>
-        </div>
+        </button>
 
         <div class="info-item" [@fadeInLeft]="animationState">
           <div class="info-icon">
@@ -62,6 +72,7 @@
             [href]="social.url"
             [class]="'social-link ' + social.platform"
             target="_blank"
+            rel="noopener"
             (mouseenter)="onSocialHover(social.platform)"
             (mouseleave)="onSocialLeave()"
           >
@@ -72,10 +83,10 @@
     </div>
 
     <div class="cta-section" [@fadeInUp]="animationState">
-      <a (click)="sendEmail()" class="cta-button">
+      <button type="button" class="cta-button" (click)="sendEmail()">
         <i class="fas fa-paper-plane"></i>
         Start a Conversation
-      </a>
+      </button>
     </div>
   </div>
 </section>

@@ -147,15 +147,17 @@ export class SkillsComponent implements OnInit {
     return this.skillCategories.find(cat => cat.key === this.activeCategory);
   }
 
-  getCategoryButtonClasses(categoryKey: string): string {
+  private getCategoryClasses(categoryKey: string): string {
     const isActive = this.activeCategory === categoryKey;
     const category = this.skillCategories.find(cat => cat.key === categoryKey);
 
-    if (isActive) {
-      return `active ${category?.colorClass}`;
-    }
-    return 'inactive';
+    return isActive ? `active ${category?.colorClass}` : 'inactive';
   }
+
+  getCategoryButtonClasses(categoryKey: string): string {
+    return this.getCategoryClasses(categoryKey);
+  }
+
 
   getActiveCategoryHeaderClasses(): string {
     const activeCategoryData = this.getActiveCategoryData();
@@ -164,18 +166,13 @@ export class SkillsComponent implements OnInit {
 
   getActiveCategoryIcon(): string {
     const activeCategoryData = this.getActiveCategoryData();
-    return activeCategoryData?.iconClass || 'fas fa-code';
+    return activeCategoryData?.iconClass ?? 'fas fa-code';
   }
 
   getSummaryCardClasses(categoryKey: string): string {
-    const isActive = this.activeCategory === categoryKey;
-    const category = this.skillCategories.find(cat => cat.key === categoryKey);
-
-    if (isActive) {
-      return `active ${category?.colorClass}`;
-    }
-    return 'inactive';
+    return this.getCategoryClasses(categoryKey);
   }
+
 
   getProgressBarClasses(level: number): string {
     if (level >= 80) {

@@ -125,4 +125,12 @@ export class ContactComponent implements OnInit {
     const encodedLocation = encodeURIComponent(this.contactInfo.location);
     window.open(`https://www.google.com/maps/search/?api=1&query=${encodedLocation}`, '_blank');
   }
+
+  handleKey(event: KeyboardEvent): void {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.callPhone();
+      event.preventDefault(); // Prevents scrolling on spacebar
+    }
+  }
+
 }
