@@ -64,7 +64,7 @@ export class ContactComponent implements OnInit {
 
   profileInfo: ProfileInfo = {
     name: 'Raed Maaloul',
-    title: 'Software engineer '
+    title: 'Software engineering student '
   };
 
   socialLinks: SocialLink[] = [

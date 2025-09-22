@@ -64,6 +64,19 @@ export class SkillsComponent implements OnInit {
       ]
     },
     {
+      key: 'devops',
+      iconClass: 'fas fa-cogs',
+      colorClass: 'bg-red-pink',
+      skills: [
+        { name: 'Jenkins', level: 80, years: '1+' },
+        { name: 'GitHub Actions', level: 75, years: '1+' },
+        { name: 'SonarQube', level: 75, years: '1+' },
+        { name: 'Prometheus', level: 70, years: '1+' },
+        { name: 'Grafana', level: 70, years: '1+' },
+        { name: 'CI/CD Pipelines', level: 85, years: '1+' }
+      ]
+    },
+    {
       key: 'cloud',
       iconClass: 'fas fa-cloud',
       colorClass: 'bg-cyan-blue',

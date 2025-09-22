@@ -290,7 +290,9 @@
 .bg-indigo-purple {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 }
-
+.bg-red-pink {
+  background: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .skills-container {

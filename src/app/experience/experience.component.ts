@@ -31,6 +31,24 @@ export class ExperienceComponent implements OnInit {
   experiences: Experience[] = [
     {
       id: 1,
+      title: 'DevOps Engineer',
+      company: 'Capgemini Engineering',
+      location: 'Tunis, Tunisia',
+      period: 'July - August 2025',
+      type: 'internship',
+      description: [
+        'Built complete CI/CD pipeline for Angular application deployment',
+        'Implemented automated testing with Jasmine, Karma, Robot Framework and Selenium',
+        'Deployed applications on Azure Kubernetes Service (AKS)',
+        'Set up monitoring solutions using Prometheus and Grafana',
+        'Managed infrastructure as code with Terraform'
+      ],
+      technologies: ['GitHub', 'Jenkins', 'Angular', 'SonarQube', 'Docker', 'Azure Container Registry', 'Azure Kubernetes Service', 'Prometheus', 'Grafana', 'Terraform', 'DuckDNS'],
+      icon: '⚙️',
+      color: '#F59E0B'
+    },
+    {
+      id: 2,
       title: 'Odoo Developer',
       company: 'TEAMDOO',
       location: 'Tunis, Tunisia',
@@ -46,7 +64,7 @@ export class ExperienceComponent implements OnInit {
       color: '#4F46E5'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Data Analyst',
       company: 'EXCEL-LENCE',
       location: 'Manouba, Tunisia',
@@ -64,7 +82,7 @@ export class ExperienceComponent implements OnInit {
       color: '#059669'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Web Developer',
       company: 'SOLIXY',
       location: 'Gabés, Tunisia',
@@ -80,7 +98,7 @@ export class ExperienceComponent implements OnInit {
       color: '#DC2626'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Cloud Infrastructure Deployment',
       company: 'Academic Project',
       location: 'ESPRIT, Tunisia',
@@ -97,7 +115,7 @@ export class ExperienceComponent implements OnInit {
       color: '#7C3AED'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Rental Management Platform',
       company: 'Personal Project',
       location: 'Tunisia',
@@ -114,7 +132,7 @@ export class ExperienceComponent implements OnInit {
       color: '#EA580C'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Participation in Bal des Projets',
       company: 'ESPRIT',
       location: 'Ariana, Tunisia',
