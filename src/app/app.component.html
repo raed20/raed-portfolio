@@ -179,6 +179,9 @@
 <nav>
   <div class="nav-container">
     <a href="#" class="logo">Raed Maaloul's Portfolio</a>
+    <button class="mobile-menu-btn" style="display: none;" onclick="toggleMobileMenu()">
+      ☰
+    </button>
     <ul class="nav-links">
       <li><a href="#about" (click)="scrollToSection($event, 'about')" [class.active]="currentSection === 'about'">About Me</a></li>
       <li><a href="#skills" (click)="scrollToSection($event, 'skills')" [class.active]="currentSection === 'skills'">Skills</a></li>
@@ -232,3 +235,61 @@
 </body>
 
 </html>
+<script>
+  // Mobile menu toggle functionality
+  function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+
+    navLinks.classList.toggle('show');
+
+    // Change hamburger icon to X when open
+    if (navLinks.classList.contains('show')) {
+      menuBtn.innerHTML = '✕';
+    } else {
+      menuBtn.innerHTML = '☰';
+    }
+  }
+
+  // Close mobile menu when clicking on a link
+  function scrollToSection(event, sectionId) {
+    event.preventDefault();
+
+    // Close mobile menu if open
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    if (navLinks.classList.contains('show')) {
+      navLinks.classList.remove('show');
+      menuBtn.innerHTML = '☰';
+    }
+
+    // Scroll to section
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(event) {
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navContainer = document.querySelector('.nav-container');
+
+    if (!navContainer.contains(event.target) && navLinks.classList.contains('show')) {
+      navLinks.classList.remove('show');
+      menuBtn.innerHTML = '☰';
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+
+    if (window.innerWidth > 639) {
+      navLinks.classList.remove('show');
+      menuBtn.innerHTML = '☰';
+    }
+  });
+</script>
