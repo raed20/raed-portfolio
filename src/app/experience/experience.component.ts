@@ -49,8 +49,7 @@ export class ExperienceComponent implements OnInit {
       color: '#F59E0B',
       screenshots: [
         'assets/images/img.png',
-        'assets/images/pipeline jenkins.png',
-        'assets/images/devops-capgemini-3.jpg'
+        'assets/images/pipeline jenkins.png'
       ]
     },
     {
@@ -190,8 +189,7 @@ export class ExperienceComponent implements OnInit {
       icon: '🎓',
       color: '#10B981',
       screenshots: [
-        'assets/images/bal-projets-1.jpg',
-        'assets/images/bal-projets-2.jpg'
+
       ]
     }
   ];
