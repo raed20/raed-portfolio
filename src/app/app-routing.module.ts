@@ -9,7 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ExperienceComponent } from "./experience/experience.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/about', pathMatch: 'full' },  // default route
+  { path: '', redirectTo: '/', pathMatch: 'full' },  // default route
   { path: 'about', component: AboutComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'projects', component: ProjectsComponent },
