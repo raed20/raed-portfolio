@@ -135,6 +135,7 @@ export class ExperienceComponent implements OnInit {
       icon: '☁️',
       color: '#7C3AED',
       screenshots: [
+        'assets/images/openstack.png',
         'assets/images/K8s.png',
         'assets/images/Grafana.png',
         'assets/images/Granfana2.png'
