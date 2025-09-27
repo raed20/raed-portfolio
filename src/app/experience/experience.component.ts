@@ -19,6 +19,7 @@ interface Experience {
   achievements?: string[];
   icon: string;
   color: string;
+  screenshots: string[]; // Array of screenshot URLs
 }
 
 @Component({
@@ -45,7 +46,12 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['GitHub', 'Jenkins', 'Angular', 'SonarQube', 'Docker', 'Azure Container Registry', 'Azure Kubernetes Service', 'Prometheus', 'Grafana', 'Terraform', 'DuckDNS'],
       icon: '⚙️',
-      color: '#F59E0B'
+      color: '#F59E0B',
+      screenshots: [
+        'assets/images/img.png',
+        'assets/images/pipeline jenkins.png',
+        'assets/images/devops-capgemini-3.jpg'
+      ]
     },
     {
       id: 2,
@@ -61,7 +67,15 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['Odoo', 'Python', 'XML', 'PostgreSQL', 'Git'],
       icon: '🏢',
-      color: '#4F46E5'
+      color: '#4F46E5',
+      screenshots: [
+        'assets/images/3.png',
+        'assets/images/4.png',
+        'assets/images/odooo.png',
+        'assets/images/quo.png',
+        'assets/images/setsodoo.png',
+        'assets/images/setsss.png',
+      ]
     },
     {
       id: 3,
@@ -79,7 +93,12 @@ export class ExperienceComponent implements OnInit {
       technologies: ['Excel', 'MySQL', 'Alteryx', 'Power BI', 'Azure'],
       achievements: ['Final Project Internship'],
       icon: '📊',
-      color: '#059669'
+      color: '#059669',
+      screenshots: [
+        'assets/images/dash mach.png',
+        'assets/images/dash pers.png',
+        'assets/images/dash proj.png'
+      ]
     },
     {
       id: 4,
@@ -95,7 +114,10 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['Angular', 'Symfony', 'Excel', 'MySQL'],
       icon: '💻',
-      color: '#DC2626'
+      color: '#DC2626',
+      screenshots: [
+
+      ]
     },
     {
       id: 5,
@@ -112,7 +134,12 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['OpenStack', 'Azure', 'Docker', 'Kubernetes', 'Linux'],
       icon: '☁️',
-      color: '#7C3AED'
+      color: '#7C3AED',
+      screenshots: [
+        'assets/images/K8s.png',
+        'assets/images/Grafana.png',
+        'assets/images/Granfana2.png'
+      ]
     },
     {
       id: 6,
@@ -129,7 +156,22 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['Angular', 'Spring Boot', 'MySQL', 'Git', 'Postman'],
       icon: '🏠',
-      color: '#EA580C'
+      color: '#EA580C',
+      screenshots: [
+        'assets/images/signin.png',
+        'assets/images/signup.png',
+        'assets/images/home1.png',
+        'assets/images/home2.png',
+        'assets/images/home3.png',
+        'assets/images/home4.png',
+        'assets/images/home5.png',
+        'assets/images/myreservation.png',
+        'assets/images/payment1.png',
+        'assets/images/payment2.png',
+        'assets/images/payment3.png',
+        'assets/images/product-details1.png',
+        'assets/images/dashboard.png'
+      ]
     },
     {
       id: 7,
@@ -146,12 +188,17 @@ export class ExperienceComponent implements OnInit {
       ],
       technologies: ['Presentation', 'Teamwork', 'Project Management'],
       icon: '🎓',
-      color: '#10B981'
+      color: '#10B981',
+      screenshots: [
+        'assets/images/bal-projets-1.jpg',
+        'assets/images/bal-projets-2.jpg'
+      ]
     }
   ];
 
   selectedExperience: Experience | null = null;
   isModalOpen = false;
+  currentScreenshotIndex = 0;
 
   constructor() { }
 
@@ -171,6 +218,7 @@ export class ExperienceComponent implements OnInit {
     console.log('Opening modal for:', experience); // Debug log
     this.selectedExperience = experience;
     this.isModalOpen = true;
+    this.currentScreenshotIndex = 0;
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'hidden';
     }
@@ -179,6 +227,7 @@ export class ExperienceComponent implements OnInit {
   closeModal(): void {
     this.isModalOpen = false;
     this.selectedExperience = null;
+    this.currentScreenshotIndex = 0;
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'auto';
     }
@@ -186,6 +235,22 @@ export class ExperienceComponent implements OnInit {
 
   stopPropagation(event: Event): void {
     event.stopPropagation();
+  }
+
+  nextScreenshot(): void {
+    if (this.selectedExperience && this.currentScreenshotIndex < this.selectedExperience.screenshots.length - 1) {
+      this.currentScreenshotIndex++;
+    }
+  }
+
+  previousScreenshot(): void {
+    if (this.currentScreenshotIndex > 0) {
+      this.currentScreenshotIndex--;
+    }
+  }
+
+  goToScreenshot(index: number): void {
+    this.currentScreenshotIndex = index;
   }
 
   private animateCards(): void {

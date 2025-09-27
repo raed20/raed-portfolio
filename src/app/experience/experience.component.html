@@ -116,6 +116,50 @@
             </span>
           </div>
         </div>
+
+        <!-- Screenshots Section - NEW -->
+        <div class="modal-section" *ngIf="selectedExperience.screenshots && selectedExperience.screenshots.length > 0">
+          <h4>Screenshots</h4>
+          <div class="screenshot-gallery">
+            <div class="main-screenshot">
+              <img
+                [src]="selectedExperience.screenshots[currentScreenshotIndex]"
+                [alt]="selectedExperience.title + ' screenshot ' + (currentScreenshotIndex + 1)"
+                class="main-screenshot-img"
+              >
+
+              <!-- Navigation arrows -->
+              <button
+                class="screenshot-nav prev"
+                (click)="previousScreenshot()"
+                [disabled]="currentScreenshotIndex === 0"
+                *ngIf="selectedExperience.screenshots.length > 1"
+              >
+                ‹
+              </button>
+              <button
+                class="screenshot-nav next"
+                (click)="nextScreenshot()"
+                [disabled]="currentScreenshotIndex === selectedExperience.screenshots.length - 1"
+                *ngIf="selectedExperience.screenshots.length > 1"
+              >
+                ›
+              </button>
+            </div>
+
+            <!-- Thumbnail navigation -->
+            <div class="screenshot-thumbnails" *ngIf="selectedExperience.screenshots.length > 1">
+              <img
+                *ngFor="let screenshot of selectedExperience.screenshots; let idx = index"
+                [src]="screenshot"
+                [alt]="selectedExperience.title + ' thumbnail ' + (idx + 1)"
+                class="thumbnail"
+                [class.active]="idx === currentScreenshotIndex"
+                (click)="goToScreenshot(idx)"
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

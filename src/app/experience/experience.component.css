@@ -429,6 +429,94 @@
   transform: scale(1.05);
 }
 
+/* Screenshot Gallery Styles - ADDED */
+.screenshot-gallery {
+  margin-bottom: 1.5rem;
+}
+
+.main-screenshot {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.main-screenshot-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+}
+
+.screenshot-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.screenshot-nav:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.screenshot-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.screenshot-nav.prev {
+  left: 10px;
+}
+
+.screenshot-nav.next {
+  right: 10px;
+}
+
+.screenshot-thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: var(--primary-color, #3b82f6);
+  transform: scale(1.1);
+}
+
 /* Stats Section */
 .stats-section {
   margin-top: 4rem;
@@ -499,44 +587,6 @@
     font-size: 2rem;
   }
 
-  .experiences-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .timeline-line {
-    display: none;
-  }
-
-  .group-title {
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .modal-content {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-
-  .modal-header {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-  .experience-container {
-    padding: 2rem 1rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
   /* Stack experience cards vertically with full width */
   .experiences-grid {
     grid-template-columns: 1fr; /* one column */
@@ -593,6 +643,22 @@
   .tech-badge {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
+  }
+
+  /* Screenshot responsive adjustments */
+  .main-screenshot {
+    max-height: 300px;
+  }
+
+  .screenshot-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 35px;
   }
 }
 
@@ -684,5 +750,19 @@
   .modal-content {
     max-width: 95vw;
     padding: 1rem;
+  }
+
+  /* Screenshot responsive adjustments for mobile */
+  .main-screenshot {
+    max-height: 250px;
+  }
+
+  .screenshot-thumbnails {
+    gap: 5px;
+  }
+
+  .thumbnail {
+    width: 45px;
+    height: 30px;
   }
 }
