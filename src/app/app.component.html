@@ -89,7 +89,6 @@
       margin: 0 auto;
       padding: 0 20px;
       padding-top: 300px; /* a bit more space for nav */
-
     }
 
     .intro-text {
@@ -148,6 +147,65 @@
       object-fit: cover;
     }
 
+    /* Download CV Button Styles */
+    .download-cv-container {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .download-cv-btn {
+      background-color: #ef233c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .download-cv-btn:hover {
+      background-color: #d0001c;
+      transform: translateY(-2px);
+    }
+
+    .download-cv-btn:active {
+      transform: translateY(0);
+    }
+
+    .cv-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin-top: 10px;
+      z-index: 100;
+      display: none;
+      min-width: 150px;
+    }
+
+    .cv-dropdown.show {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    .cv-dropdown a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .cv-dropdown a:hover {
+      background-color: #f8f9fa;
+      color: #ef233c;
+    }
+
     /* Section Styles */
     section {
       padding: 100px 20px;
@@ -159,6 +217,17 @@
       from {
         opacity: 0;
         transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
       }
       to {
         opacity: 1;
@@ -182,7 +251,7 @@
     <button class="mobile-menu-btn" style="display: none;" onclick="toggleMobileMenu()">
       ☰
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about" (click)="scrollToSection($event, 'about')" [class.active]="currentSection === 'about'">About Me</a></li>
       <li><a href="#skills" (click)="scrollToSection($event, 'skills')" [class.active]="currentSection === 'skills'">Skills</a></li>
       <li><a href="#projects" (click)="scrollToSection($event, 'projects')" [class.active]="currentSection === 'projects'">Projects</a></li>
@@ -199,10 +268,15 @@
       <span class="name-part-1">Raed</span>
       <span class="name-part-2">Maaloul</span>
     </h1>
-    <p>  <b>Passionate about distributed architectures,
-      virtualization, and cloud technologies. Curious
-      and eager for new challenges. </b></p>
+    <p><b>Passionate about distributed architectures, virtualization, and cloud technologies. Curious and eager for new challenges.</b></p>
     <h2 class="welcome-text">Welcome to my portfolio</h2>
+    <div class="download-cv-container">
+      <button class="download-cv-btn" (click)="toggleCVDropdown()">Download CV</button>
+      <div class="cv-dropdown" [class.show]="showCVDropdown">
+        <a href="assets/cv/CV_Raed_Maaloul_FR.pdf" download="CV_Raed_Maaloul_FR.pdf">CV in French</a>
+        <a href="assets/cv/CV_Raed_Maaloul_EN.pdf" download="CV_Raed_Maaloul_EN.pdf">CV in English</a>
+      </div>
+    </div>
   </div>
   <div class="profile-image">
     <img src="assets/images/raed.png" alt="Raed Maaloul">
@@ -218,11 +292,11 @@
 </section>
 
 <section id="projects">
-<app-projects></app-projects>
+  <app-projects></app-projects>
 </section>
 
 <section id="experience">
-<app-experience></app-experience>
+  <app-experience></app-experience>
 </section>
 
 <section id="contact">
@@ -232,9 +306,7 @@
 <footer>
   <p>&copy; 2025 Raed Maaloul. All rights reserved.</p>
 </footer>
-</body>
 
-</html>
 <script>
   // Mobile menu toggle functionality
   function toggleMobileMenu() {
@@ -293,3 +365,5 @@
     }
   });
 </script>
+</body>
+</html>

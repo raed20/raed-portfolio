@@ -315,4 +315,56 @@
   .summary-cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Download CV Button Styles */
+  .download-cv {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .download-btn {
+    background-color: #ef233c;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background-color: #d90429;
+  }
+
+  .cv-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    top: 45px;
+    right: 0;
+    min-width: 160px;
+    z-index: 1000;
+  }
+
+  .cv-menu a {
+    display: block;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.3s ease;
+  }
+
+  .cv-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .cv-menu a:hover {
+    background-color: #f8f9fa;
+  }
+
 }

@@ -55,4 +55,18 @@ export class AppComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  showCVDropdown = false;
+
+  toggleCVDropdown() {
+    this.showCVDropdown = !this.showCVDropdown;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const dropdownContainer = document.querySelector('.download-cv-container');
+    if (dropdownContainer && !dropdownContainer.contains(target)) {
+      this.showCVDropdown = false;
+    }
+  }
 }
