@@ -31,6 +31,28 @@ export class ExperienceComponent implements OnInit {
 
   experiences: Experience[] = [
     {
+      id: 8,
+      title: 'Software Engineer',
+      company: 'Capgemini Engineering',
+      location: 'Tunis, Tunisia',
+      period: 'February - July 2026',
+      type: 'internship',
+      description: [
+        'Designed and built TestForge AI, an AI-powered QA automation platform, as a final-year engineering project (PFE) to replace Capgemini\'s existing Sogeti GenAI Amplifier tooling',
+        'Implemented secure authentication and automated Jira User Story synchronization and refinement using LLM agents orchestrated with LangChain and LangGraph',
+        'Built a hybrid risk-analysis engine (KNN + LLM) and automated generation of test plans, test suites, and test cases from the refined user stories',
+        'Developed a Playwright ReAct agent for autonomous end-to-end test execution, with real-time dashboards and Jira/Testomat.io reporting',
+        'Containerized and deployed the platform to Azure Kubernetes Service using Terraform (Infrastructure as Code) and Kubernetes, exposing it over HTTPS via NGINX Ingress and Let\'s Encrypt'
+      ],
+      technologies: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'Angular', 'TypeScript', 'PostgreSQL', 'Redis', 'Playwright', 'scikit-learn', 'Docker', 'Terraform', 'Azure Kubernetes Service', 'Jira API'],
+      achievements: ['Final Year Engineering Project (PFE) conducted at Capgemini Engineering', 'Reduced manual test-creation effort while improving requirement traceability and test coverage'],
+      icon: '🤖',
+      color: '#0891B2',
+      screenshots: [
+
+      ]
+    },
+    {
       id: 1,
       title: 'DevOps Engineer',
       company: 'Capgemini Engineering',
