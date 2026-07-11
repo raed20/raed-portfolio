@@ -1,90 +1,53 @@
 <section class="projects-section">
-  <h2 class="section-title">My Projects</h2>
+  <div class="header-section">
+    <h2 class="main-title">My Projects</h2>
+    <p class="subtitle">A selection of things I've built — from AI agents to cloud infrastructure</p>
+  </div>
 
-  <div class="project-filters">
-    <button class="filter-btn active">All</button>
+  <div class="category-nav">
+    <button
+      *ngFor="let category of categories"
+      (click)="setActiveCategory(category.key)"
+      [class]="getCategoryButtonClasses(category.key)"
+      class="category-btn"
+    >
+      <i [class]="category.iconClass"></i>
+      <span>{{ category.label }}</span>
+      <span class="count-badge">{{ getCategoryCount(category.key) }}</span>
+    </button>
   </div>
 
   <div class="projects-grid">
-    <div class="project-card ml">
-      <a href="https://github.com/raed20/akscluster-main" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>Azure Kubernetes Service Infrastructure with Terraform</h3>
+    <div class="project-card" *ngFor="let project of getFilteredProjects()">
+      <div class="card-accent" [ngClass]="getCategoryColorClass(project.category)"></div>
+
+      <div class="card-body">
+        <div class="card-icon" [ngClass]="getCategoryColorClass(project.category)">
+          <i [class]="getCategoryIconClass(project.category)"></i>
         </div>
-      </a>
-      <p>Infrastructure as Code project for building a production-ready Azure Kubernetes Service cluster using Terraform. The project includes automated cluster provisioning, monitoring setup with Prometheus and Grafana, and complete infrastructure management with best practices for scalability and security.</p>
-      <p><b>Tools:</b> Terraform, Azure Kubernetes Service, Azure Container Registry, Prometheus, Grafana, DuckDNS</p>
-    </div>
 
-    <div class="project-card ml">
-      <a href="https://github.com/raed20/E-commerce-App-main" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>E-commerce Platform with CI/CD Pipeline</h3>
+        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-description">{{ project.description }}</p>
+
+        <div class="tech-tags">
+          <span class="tech-tag" *ngFor="let tool of project.tools">{{ tool }}</span>
         </div>
-      </a>
-      <p>A full-featured e-commerce application built with Angular, implementing a complete CI/CD pipeline with automated testing, code quality analysis, containerization, and deployment. Features comprehensive testing with unit tests, end-to-end testing, and continuous integration practices.</p>
-      <p><b>Tools:</b> GitHub, Jenkins, Angular, Jasmine, Karma, SonarQube, Docker, Robot Framework, Selenium</p>
+
+        <a
+          *ngIf="project.link"
+          [href]="project.link"
+          target="_blank"
+          rel="noopener"
+          class="project-link"
+        >
+          <i class="fab fa-github"></i>
+          <span>View on GitHub</span>
+        </a>
+        <span *ngIf="!project.link" class="project-link disabled">
+          <i class="fas fa-lock"></i>
+          <span>Private Project</span>
+        </span>
+      </div>
     </div>
-
-    <div class="project-card ml">
-      <a href="https://github.com/raed20/raed-portfolio" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>My portfolio </h3>
-        </div>
-      </a>
-      <p>A modern, responsive web portfolio designed to showcase my skills, projects, and professional background. Built with a clean UI and smooth animations, it highlights my journey as a developer, featuring categorized project sections, technology stacks, and interactive design elements. The site serves as a digital resume and a platform to connect with potential recruiters and collaborators.</p>
-      <p><b>Tools : </b> Angular </p>
-    </div>
-
-    <div class="project-card ml">
-      <a href="#" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>Deployment of Rental Platform on Cloud Infrastructures </h3>
-        </div>
-      </a>
-      <p>I deployed our rental platform on OpenStack infrastructure and implemented a deployment pipeline while managing cloud resources on Microsoft Azure, handling environment setup, configuration, and monitoring to ensure smooth operations.</p>
-      <p><b>Tools : </b> Docker , Kubernetes , Azure ,Openstack </p>
-    </div>
-
-    <div class="project-card ml">
-      <a href="#" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3> Cloud Infrastructure with OpenStack  </h3>
-        </div>
-      </a><p>I deployed private cloud services using OpenStack by configuring compute, storage, and network nodes, while applying automation and orchestration techniques to streamline operations.      <p><b>Tools : </b> OpenStack services , Linux, Git, Shell Scripting</p>
-    </div>
-
-    <div class="project-card ml">
-      <a href="https://github.com/taher129/Rentify-Front.git" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>Rentify </h3>
-        </div>
-      </a>
-      <p>Rentify is a modern web platform designed to streamline the property rental process. It connects landlords and tenants through a clean interface, offering features like property listings, intelligent search filters, booking systems, integrated communication tools , product recognition system , AI assistant .</p>
-      <p><b>Tools : </b> Angular,Spring boot , Python  </p>
-
-    </div>
-
-    <div class="project-card ml">
-      <a href="https://github.com/raed20/AirportManagement.git" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>Airport management system </h3>
-        </div>
-      </a>
-      <p>A comprehensive desktop application designed to simulate core airport operations. Developed as an educational project, it facilitates the management of flights, passengers, staff, and ticketing. The system supports CRUD operations, scheduling, and real-time status updates, aiming to replicate the functionalities of a real-world airport in a simplified, user-friendly interface .</p>
-      <p><b>Tools : </b> .Net </p>
-    </div>
-
-    <div class="project-card ml">
-      <a href="https://github.com/raed20/ExamScheduling.git" target="_blank" class="card-link">
-        <div class="card-content">
-          <h3>Exam Scheduling System </h3>
-        </div>
-      </a>
-      <p>A Python-based project developed to optimize exam timetables using the simulated annealing algorithm. The system aims to allocate exams across available time slots and rooms while minimizing conflicts (e.g., students with overlapping exams) and balancing constraints such as room capacities and exam durations.</p>
-    <p><b>Tools:</b> Python</p>
-    </div>
-
-    <!-- Add more project cards here -->
   </div>
 </section>
